@@ -1,5 +1,6 @@
 package tree;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class GenericTreeNode<E> {
 	E data;
@@ -8,6 +9,7 @@ public class GenericTreeNode<E> {
 	
 	public GenericTreeNode(E theItem) {
 		data = theItem;
+		children = new ArrayList<>();
 	}
 	
 	public void addChild(GenericTreeNode<E> theItem) {
@@ -15,9 +17,14 @@ public class GenericTreeNode<E> {
 	}
 	
 	public void removeChild(E theItem) {
-		// this one is a little harder.
-		// what do you do when the item has children?
-		// I suggest "give them to the parent"
+		Iterator<GenericTreeNode<E>> iterator = children.iterator();
+	    while (iterator.hasNext()) {
+	        GenericTreeNode<E> child = iterator.next();
+	        if (child.data.equals(theItem)) {
+	        	iterator.remove();
+	            break;
+	        }
+	    }
 	}
 	
 	

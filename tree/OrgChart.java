@@ -4,7 +4,6 @@ public interface OrgChart {
 	public void addRoot(Employee e); 
 		// if there is no orgchart, start it
 	
-	
 	public void clear();
 		// get rid of the org chart
 	
